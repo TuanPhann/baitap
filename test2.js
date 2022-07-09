@@ -390,3 +390,22 @@
 
 
 // console.log(person2 === person1);
+
+//-------------------------------------------------------------
+
+var tip = 100;
+
+(function () {
+    // console.log("I have $" + husband());
+    console.log(tip);
+    function wife() {
+        return tip * 2;
+    }
+
+    function husband() {
+        return wife() / 2;
+    }
+
+    var tip = 10;
+})();
+// Output: ?

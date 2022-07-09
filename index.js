@@ -172,17 +172,20 @@
 
 //Exercise 1 
 // function isString(item) {
-//     var isuppercase = item.toUpperCase() // chuyển chuổi thành chữ in hoa
-//     var output = isuppercase.charAt(0).toLowerCase() + isuppercase.slice(1) // lấy ra phần tử đầu tiền và cho là chữ thường nối với phần chuổi trên dc cắt ra // h + ELLO
-//     return output
+//     var isArray = item.split('')
+//     var output = isArray.map((item) => {
+//         return item === item.toUpperCase() ? item.toLowerCase() : item.toUpperCase()
+//     })
+//     return output.join('')
 // }
+
 // var isoutput = isString("Hello")
 // console.log(isoutput); // output = "hELLO"
 
 //Exercise 2
 // var input = [32, "abc", true, 65];
 // function isRandom(item) {
-//     var random = Math.floor(Math.random() * 4) //sô random từ 0 -> 3
+//     var random = Math.floor(Math.random() * item.length) //sô random từ 0 -> 3
 //     return item[random]  // index của array sẽ truyền random vào
 // }
 // var output = isRandom(input)
@@ -190,21 +193,15 @@
 
 //Exercise 3
 // function getTime(num) {
-//     var isTime = ''
 //     if (num <= 10) {
-//         num = "Sáng"
-//         isTime += num
+//         return 'sáng'
 //     } else if (num > 10 && num <= 13) {
-//         num = "Trưa"
-//         isTime += num
+//         return 'Trưa'
 //     } else if (num > 13 && num <= 17) {
-//         num = "Chiều"
-//         isTime += num
+//         return 'Chiều'
 //     } else if (num > 17 && num <= 24) {
-//         num = "Tối"
-//         isTime += num
+//         return 'Tối'
 //     }
-//     return isTime
 // }
 // var output = getTime(20)
 // console.log(output); // output = in ra kết quả theo giờ
@@ -230,27 +227,39 @@
 // var output = isReualt(input)
 // console.log(output); // output =  { max: 8, min: 1, sum: 23 }
 
+// way 2 
+// var input = [1, 3, 2, 8, 4, 5]
+// function isNumber(input) {
+//     var isArray = input.sort()
+//     var max = isArray[isArray.length - 1]
+//     var min = isArray[0]
+//     var sum = input.reduce((num, item) => {
+//         return num += item
+//     })
+//     return { max, min, sum }
+// }
+// var output = isNumber(input)
+// console.log(output);
+
 
 // Exercise 5
 // function isNumber(num) {
-//     var isstring = +(num.toString().split('').reverse().join(''))
-//     if ((num === isstring) && (num >= 10)) {
-//         num = true
-//     } else {
-//         num = false
-//     }
-//     return num
+//     var isstring = num === +(num.toString().split('').reverse().join(''))
+//     return isstring
 // }
 // var output = isNumber(1221)
 // console.log(output);
 
 // Exercise 6 // chua xong
-
 // input : nhan vao chieu rong va chieu cao
 // output : can tra ve mot chuoi thong tin chieu rong  va chieu cao truyen vao // neu rong hoac cao bang 0 thi bao loi 
-
-
-
+// function matrix(width, height) {
+//     if (width === 0 || height === 0) return 'Width or height can not equal 0 '
+//     var isWidth = '0 '.repeat(width) + '\n'
+//     return isWidth.repeat(height)
+// }
+// var output = matrix(0, 5)
+// console.log(output);
 
 // Exersice 7
 // var input = [1, 32, 33, 34, 35, 35, 36, 99];
@@ -318,13 +327,21 @@
 // Exercise 9
 
 // var isNumber = '456789';
-// var a = 3;
+// var a = 5;
 // function getArray(num, a) {
-
+//     var resualt = []
+//     if (a > num.length) return [num];
+//     var isNumber = num.length - a + 1;
+//     for (var b = 0; b < isNumber; b++) {
+//         var el = num.split('').splice(b, a).join('')
+//         resualt.push(el)
+//     }
+//     return resualt
 // }
+// var output = getArray(isNumber, a)
+// console.log(output);
 
-// getArray(isNumber, a)
-
+// bài test
 // function flatten(arr) {
 //     while (arr.some((item) => Array.isArray(item))) {
 //         console.log(arr);
@@ -337,5 +354,3 @@
 
 // let arr = [1, 2, 3, 4, [5, [6, 7]]]
 // console.log(flatten(arr))
-
-
